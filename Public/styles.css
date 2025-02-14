@@ -1,0 +1,258 @@
+/* General styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(120deg, #1a1a2e, #16213e);
+  color: #eaeaea;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  overflow-x: hidden; /* Prevent horizontal scroll on animations */
+}
+
+/* Page Title */
+h1 {
+  margin: 20px 0;
+  color: #fff;
+  font-size: 3rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+  animation: bounceIn 1.5s ease; /* Add a bounce animation */
+}
+
+/* Form container with enhanced glassmorphism */
+form {
+  width: 90%;
+  max-width: 600px;
+  padding: 25px;
+  margin-bottom: 25px;
+  background: rgba(30, 30, 50, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  animation: fadeIn 2s ease; /* Add fade-in effect */
+}
+
+/* Ingredient input box */
+form input {
+  width: 95%;
+  padding: 12px 15px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: background 0.3s ease, border 0.3s ease, transform 0.2s ease;
+}
+
+form input:focus {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  border: 1px solid #6a89cc;
+  transform: scale(1.02);
+}
+
+form label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #eaeaea;
+}
+
+/* Dropdown for health goals */
+form select {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 16px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: background 0.3s ease, border 0.3s ease, transform 0.2s ease;
+}
+
+form select:focus {
+  background: rgba(255, 255, 255, 0.3);
+  outline: none;
+  border: 1px solid #6a89cc;
+  transform: scale(1.02);
+}
+
+/* Submit button */
+form button {
+  background: linear-gradient(90deg, #6a89cc, #82ccdd);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  padding: 12px 20px;
+  border-radius: 12px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover {
+  background: linear-gradient(90deg, #82ccdd, #6a89cc);
+  transform: translateY(-3px);
+}
+
+/* Results container with updated recipe cards */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  width: 90%;
+  max-width: 1200px;
+  margin: 30px auto;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: slideIn 1.5s ease forwards; /* Slide-in animation */
+}
+
+/* Recipe card */
+.recipe-card {
+  background: rgba(40, 40, 60, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: zoomIn 0.5s ease; /* Add zoom effect */
+}
+
+.recipe-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.recipe-card h3 {
+  margin: 15px;
+  font-size: 18px;
+  color: #eaeaea;
+  text-align: center;
+}
+
+.recipe-card button {
+  display: block;
+  margin: 10px auto;
+  padding: 8px 15px;
+  background: linear-gradient(90deg, #6a89cc, #82ccdd);
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.recipe-card button:hover {
+  background: linear-gradient(90deg, #82ccdd, #6a89cc);
+  transform: scale(1.1);
+}
+
+/* Modal for full recipe */
+#recipe-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+#recipe-modal .modal-content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  overflow-y: auto;
+  max-height: 80%;
+}
+
+#recipe-modal .modal-content h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+#recipe-modal .modal-content p {
+  margin: 10px 0;
+  color: #555;
+}
+
+#recipe-modal .close {
+  background: #ff4757;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+#recipe-modal .close:hover {
+  background: #ff6b6b;
+  transform: scale(1.1);
+}
+
+/* Keyframes for animations */
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
