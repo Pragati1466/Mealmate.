@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Suggestion App</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Recipe Suggestion App</h1>
+    <form id="recipe-form">
+        <label for="ingredients">Enter your ingredients (comma-separated):</label><br>
+        <input type="text" id="ingredients" name="ingredients" required><br>
+        
+        <label for="healthGoal">Select your health goal:</label><br>
+        <select id="healthGoal" name="healthGoal">
+            <option value="">--Select Health Goal--</option>
+            <option value="muscle gain">Muscle Gain</option>
+            <option value="weight loss">Weight Loss</option>
+            <option value="diabetes">Diabetes</option>
+            <option value="blood pressure">Blood Pressure (BP) Management</option>
+            <option value="heart health">Heart Health</option>
+            <option value="keto diet">Keto Diet</option>
+            <option value="vegan">Vegan</option>
+            <option value="gluten-free">Gluten-Free</option>
+            <option value="low-carb">Low-Carb</option>
+            <option value="high-protein">High-Protein</option>
+            <option value="cholesterol reduction">Cholesterol Reduction</option>
+            <option value="anti-inflammatory">Anti-Inflammatory</option>
+            <option value="detox">Detox</option>
+            <option value="weight maintenance">Weight Maintenance</option>
+            <option value="improved digestion">Improved Digestion</option>
+            <option value="skin health">Skin Health</option>
+            <option value="bone health">Bone Health</option>
+            <option value="pre/post workout">Pre/Post Workout (Fitness Goals)</option>
+            <option value="pregnancy nutrition">Pregnancy Nutrition</option>
+            <option value="kidney health">Kidney Health</option>
+            <option value="liver detox">Liver Detox</option>
+        </select><br>
+        
+        <button type="submit">Get Recipes</button>
+    </form>
+    <div id="results"></div>
+    <div id="recipe-modal" style="display: none;">
+      <div class="modal-content">
+        <button class="close">Close</button>
+      </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
